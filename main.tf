@@ -13,7 +13,7 @@ terraform {
 # Creating the aws_s3_resource
 
 resource "aws_s3_bucket" "trayport_s3" {
-    # Looping through the s3_buckets variable
+  # Looping through the s3_buckets variable
   for_each = var.s3_buckets
 
   bucket = each.value.name
@@ -51,8 +51,8 @@ resource "aws_s3_bucket_object_lock_configuration" "lock" {
 
   rule {
     default_retention {
-      mode  = each.value.lock_mode
-      days  = each.value.retention
+      mode = each.value.lock_mode
+      days = each.value.retention
     }
   }
 }
